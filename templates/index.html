@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Expense</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body style="background: rgb(252, 250, 250);">
+  <div class="login">
+   <h1 style="text-align:center">Healthcare Expense Predictor</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="age" colo>Age:  </label>
+      <input type="text" name="age" placeholder="age" required="required">
+      <br>
+      <br>
+      <label for="bmi">BMI:  </label>
+      <input type="text" name="bmi" placeholder="bmi" required="required">
+      <br>
+      <br>
+      <label for="children">Children:  </label>
+      <select id="children" name="children", placeholder="children", required="required">
+        <option value="0">Not Applicable</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 & above</option>
+      </select>
+      <br>
+      <br>
+      <label for="Sex">Sex:  </label>
+      <select id="Sex" name="Sex" placeholder="Sex", required="required">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select>
+      <br>
+      <br>
+      <label for="Smoker">Smoker:  </label>
+      <select id="Smoker" name="Smoker", placeholder="Smoker", required="required">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <br>
+      <label for="Region">Region:  </label>
+      <select id="Region" name="Region", placeholder="Region", required="required">
+        <option value="0">Northeast</option>
+        <option value="1">Northwest</option>
+        <option value="2">Southeast</option>
+        <option value="3">Southwest</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict Medical Charges</button>
+    </form>
+    <br>
+    <br>
+    <h2>
+    {{ prediction_text }}
+    </h2>
+  </div>
+</body>
+</html>
